@@ -1,0 +1,11 @@
+# list the first 20 HSPs that have fewer than 20 mismatches
+
+cut -f1,5 blastoutput2.out | grep -v "#" |
+while read acc mismatches
+do
+  	if test $mismatches -lt 20
+	then
+	echo -e "$acc\t$mismatches"
+fi
+done | head -20
+
