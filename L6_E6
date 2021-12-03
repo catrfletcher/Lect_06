@@ -1,0 +1,10 @@
+#how many HSPs are shorter than 100 amino acids?
+
+cut -f4 blastoutput2.out | grep -v "#" |
+while read length
+do
+	if test $length -lt 100
+	then
+	echo -e "$length"
+	fi
+done |  wc -l
