@@ -1,0 +1,11 @@
+#how many subject sequences have more than one HSP?
+
+cut -f2 blastoutput2.out | grep -v "#" | uniq -c |
+while read count acc
+do
+	if test $count -gt 1
+	then
+	echo -e "$acc"
+	fi
+done | wc -l
+
