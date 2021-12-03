@@ -1,0 +1,10 @@
+#show the HSPs shorter than 100 amino acids and with more than 20 mismatches
+
+cut -f1,4,5 blastoutput2.out | grep -v "#" |
+while read acc length mismatches
+do
+	if test $length -lt 100 && test $mismatches -gt 20
+	then
+		echo -e "$acc\t$length\t$mismatches"
+	fi
+done
