@@ -1,0 +1,12 @@
+# show the HSPs with more than 20 mismatches
+
+cut -f1,5 blastoutput2.out | grep -v "#" |
+while read acc mismatches
+do
+	if test $mismatches -gt 20
+	then
+	echo -e "$acc\t$mismatches"
+	fi
+done
+
+
