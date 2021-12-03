@@ -1,0 +1,7 @@
+#list the alignment length and percent ID for all HSPs
+
+cut -f3,4 blastoutput2.out | grep -v "#" |
+while read percent_id alignment_length
+do
+echo -e "$percent_id\t$alignment_length"
+done
