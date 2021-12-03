@@ -1,0 +1,7 @@
+#list the top ten highest (best) HSPs
+
+cut -f1,12 blastoutput2.out | grep -v "#" |
+while read acc score
+do
+	echo -e "$acc\t$score"
+done | sort -k2,2nr | head -10
