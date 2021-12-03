@@ -1,0 +1,6 @@
+#list the subject accession for all HSPs
+cut -f2 blastoutput2.out | grep -v "#" |
+while read ac
+do
+echo "$ac"
+done
