@@ -1,0 +1,7 @@
+# list the start positions of all matches where the HSP Subject accession includes the letters string "AEI"
+
+cut -f2,7 blastoutput2.out | grep -v "#" | grep "AEI" |
+while read acc start
+do
+	echo -e "$acc\t$start"
+done
