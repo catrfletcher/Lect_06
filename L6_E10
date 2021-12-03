@@ -1,0 +1,8 @@
+# what percentage of each HSP is made up of mismatches?
+
+cut -f2,4,5 blastoutput2.out | grep -v "#" |
+while read acc length mismatches
+do
+	proportion=$((100*mismatches/length))
+	echo -e "$acc\t$proportion"
+done
