@@ -1,0 +1,17 @@
+# allocate HSPs into different groups based on their scores
+
+cut -f2,12 blastoutput2.out | grep -v "#" |
+while read acc score
+do
+	if test $score -gt 349
+	then
+		echo -e "$acc\t$score" >> high_scores.txt
+	else
+	if test $score -gt 199 && test $score -lt 350
+	then
+		echo -e "$acc\t$score" >> medium_scores.txt
+	else
+		echo -e "$acc\t$score" >> low_scores.txt
+	fi
+	fi
+done
